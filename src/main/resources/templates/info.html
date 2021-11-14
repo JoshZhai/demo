@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}" media="all">
+
+    <style>
+        *{
+            margin: 0;
+        }
+
+        .layui-form{
+            width: 25%;
+            margin: 0 auto;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .layui-form-item{
+
+            min-width: 350px;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a th:href="@{/backindex}">
+        <div class="layui-logo">图像质量主观评价系统</div></a>
+
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">您好,[[${session.loginName}]]！</li>
+            <li class="layui-nav-item"><a th:href="@{/info}">个人中心</a></li>
+            <li class="layui-nav-item"><a th:href="@{/backindex}">返回主页</a></li>
+            <li class="layui-nav-item"><a th:href="@{/backlogin}">登出</a></li>
+            <span class="layui-nav-bar" style="left: 20px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item"><a th:href="@{/DSCQS}">绝对评价</a></li>
+                <li class="layui-nav-item"><a th:href="@{/SSCQE}">相对评价</a></li>
+                <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+
+
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+
+        <form class="layui-form" th:action="@{/infoCheck}">
+
+            <br><br><br><br>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名
+                    <i class="layui-icon">&#xe66f;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <!-- //采用inline表示可以继续放 -->
+                    <input type="text" name="username" th:value="${session.loginName}" required lay-verify="username" placeholder="请输入用户名" autocomplete="off" class="layui-input" lay-verType="msg">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码
+                    <i class="layui-icon"> &#xe673;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="password" th:value="${session.loginPassword}" required lay-verify="userpassword" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机号
+                    <i class="layui-icon"> &#xe678;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="phonenum" th:value="${session.loginPhoneNum}" required lay-verify="phonenum" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <div class="layui-input-inline">
+                        <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login">提交</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+    </div>
+</div>
+
+<script th:src="@{/layui.js}" charset="utf-8"></script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录界面</title>
+    <link rel="stylesheet" th:href="@{/css/layui.css}">
+
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+
+        body{
+            background-color: #ebf6ff;
+        }
+        .layui-form{
+            width: 25%;
+            margin: 0 auto;
+        }
+
+        .box{
+            height: 30%;
+            margin: 0 auto;
+            display: table;
+            text-align: center;
+        }
+
+        .label{
+            display: table-cell;
+
+            height: 30%;
+            font-size: 50px;
+            width: 10%;
+            margin: 0 auto;
+            vertical-align: middle;
+        }
+
+
+        .layui-form{
+
+        }
+
+        .layui-form-item{
+
+            min-width: 350px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box">
+        <label class="label">图像质量主观评价系统</label>
+    </div>
+
+    <form class="layui-form" th:action="@{/registerCheck}">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名
+                    <i class="layui-icon">&#xe66f;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <!-- //采用inline表示可以继续放 -->
+                    <input type="text" name="username" required lay-verify="username" placeholder="请输入用户名" autocomplete="off" class="layui-input" lay-verType="msg">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码
+                    <i class="layui-icon"> &#xe673;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机号
+                    <i class="layui-icon"> &#xe678;</i>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="phonenum" required lay-verify="phonenum" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login">注册</button>
+                    </div>
+                </div>
+            </div>
+
+    </form>
+
+<script th:src="@{/layui.js}"></script>
+</body>
+</html>

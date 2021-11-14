@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/css/layui.css}" media="all">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="">
+        <div class="layui-logo">图像质量主观评价系统后台</div></a>
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">您好,管理员！</li>
+            <li class="layui-nav-item"><a th:href="@{/backlogin}">登出</a></li>
+            <span class="layui-nav-bar" style="left: 20px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item"><a th:href="@{/adminuser}">用户管理</a></li>
+                <li class="layui-nav-item"><a th:href="@{/adminscore}">评价统计</a></li>
+                <li class="layui-nav-item"><a th:href="@{/adminimage}">图片管理</a></li>
+                <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+    </div>
+</div>
+
+<script th:src="@{/layui.js}" charset="utf-8"></script>
+
+</body>
+</html>

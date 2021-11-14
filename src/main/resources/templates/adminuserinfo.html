@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/layui.css}" media="all">
+
+
+    <style>
+
+        .btn{
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+        }
+        .layui-form{
+            width: 25%;
+            margin: 0 auto;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .layui-form-item{
+            min-width: 350px;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="">
+        <div class="layui-logo">图像质量主观评价系统后台</div></a>
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">您好,管理员！</li>
+            <li class="layui-nav-item"><a th:href="@{/backlogin}">登出</a></li>
+            <span class="layui-nav-bar" style="left: 20px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item"><a th:href="@{/adminuser}">用户管理</a></li>
+                <li class="layui-nav-item"><a th:href="@{/adminscore}">评价统计</a></li>
+                <li class="layui-nav-item"><a th:href="@{/adminimage}">图片管理</a></li>
+                <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+
+        <form class="layui-form" th:action="@{/adminuserinfocheck}">
+
+            <br><br><br><br>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名
+                </label>
+                <div class="layui-input-inline">
+                    <!-- //采用inline表示可以继续放 -->
+                    <input type="text" name="username" th:value="${session.loginName}" required lay-verify="username" placeholder="请输入用户名" autocomplete="off" class="layui-input" lay-verType="msg">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="password" th:value="${session.loginPassword}" required lay-verify="userpassword" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机号
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="phonenum" th:value="${session.loginPhoneNum}" required lay-verify="phonenum" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">管理员
+                </label>
+                <div class="layui-input-inline">
+                    <input type="radio" name="isadmin" value="Y" title="是">
+                    <input type="radio" name="isadmin" value="N" title="否" checked>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="btn">
+                    <div class="layui-input-inline">
+                        <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login">保存</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+</div>
+
+<script th:src="@{/layui.js}" charset="utf-8"></script>
+
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.5.1.min.js}"><\/script>')</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+
+</body>
+</html>
